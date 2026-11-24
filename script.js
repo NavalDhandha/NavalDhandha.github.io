@@ -2,7 +2,8 @@ const root = document.documentElement;
 const themeButton = document.getElementById('themeToggle');
 const themeIcon = document.getElementById('themeIcon');
 const storedTheme = localStorage.getItem('naval-theme');
-if (storedTheme === 'light') root.dataset.theme = 'light';
+// Light is the default for new visitors; keep previously saved preferences.
+root.dataset.theme = storedTheme === 'dark' ? 'dark' : 'light';
 function updateThemeIcon() { themeIcon.textContent = root.dataset.theme === 'light' ? '☾' : '☀'; }
 updateThemeIcon();
 themeButton.addEventListener('click', () => {
